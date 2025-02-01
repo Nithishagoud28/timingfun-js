@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        #box {
+            position: relative;
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        #skip {
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            /* background-color: black; */
+            color: white;
+            font-size: 14px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        /* #skip:hover {
+            background: rgba(255, 0, 0, 0.8);
+        } */
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <div>
+        <video src="" controls loop autoplay id="vdo" height="300" width="300"></video>
+    </div>
+    <div id="skip">
+        <button id="btn">Skip Add</button>
+    </div>
+</div>
+<script>
+    let i=10;
+    let timer=document.getElementById("btn")
+    let videoelement=document.getElementById("vdo")
+    let timerid=setInterval(()=>{
+        timer.innerHTML=`Skip add ${i--}`;
+        if(i<0){
+            skipAd()
+        }
+    },1000)
+    function skipAd(){
+        clearInterval(timerid)
+        btn.style.display="none"
+        videoelement.src="./videos/pushpa video.mp4"
+    }
+    btn.addEventListener("click",skipAd)
+</script>
+        
+</body>
+</html>
